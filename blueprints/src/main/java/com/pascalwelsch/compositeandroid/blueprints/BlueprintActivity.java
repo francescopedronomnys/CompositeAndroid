@@ -67,8 +67,6 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.ContextMenu;
 import android.view.Display;
-import android.view.DragAndDropPermissions;
-import android.view.DragEvent;
 import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.KeyboardShortcutGroup;
@@ -2588,20 +2586,6 @@ public class BlueprintActivity extends AppCompatActivity {
     @Override
     public void reportFullyDrawn() {
         super.reportFullyDrawn();
-    }
-
-    /**
-     * Create {@link DragAndDropPermissions} object bound to this activity and controlling the
-     * access permissions for content URIs associated with the {@link DragEvent}.
-     *
-     * @param event Drag event
-     * @return The {@link DragAndDropPermissions} object used to control access to the content URIs.
-     * Null if no content URIs are associated with the event or if permissions could not be
-     * granted.
-     */
-    @Override
-    public DragAndDropPermissions requestDragAndDropPermissions(final DragEvent event) {
-        return super.requestDragAndDropPermissions(event);
     }
 
     /**

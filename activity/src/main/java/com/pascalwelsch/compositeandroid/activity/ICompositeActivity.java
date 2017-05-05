@@ -57,8 +57,6 @@ import android.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.Display;
-import android.view.DragAndDropPermissions;
-import android.view.DragEvent;
 import android.view.KeyEvent;
 import android.view.KeyboardShortcutGroup;
 import android.view.LayoutInflater;
@@ -616,8 +614,6 @@ public interface ICompositeActivity
     void removeStickyBroadcastAsUser(final Intent intent, final UserHandle user);
 
     void reportFullyDrawn();
-
-    DragAndDropPermissions requestDragAndDropPermissions(final DragEvent event);
 
     boolean requestVisibleBehind(final boolean visible);
 
@@ -1335,8 +1331,6 @@ public interface ICompositeActivity
     void super_removeStickyBroadcastAsUser(final Intent intent, final UserHandle user);
 
     void super_reportFullyDrawn();
-
-    DragAndDropPermissions super_requestDragAndDropPermissions(final DragEvent event);
 
     boolean super_requestVisibleBehind(final boolean visible);
 

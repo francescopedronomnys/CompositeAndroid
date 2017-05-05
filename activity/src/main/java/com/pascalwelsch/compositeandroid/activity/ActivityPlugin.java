@@ -1,22 +1,5 @@
 package com.pascalwelsch.compositeandroid.activity;
 
-import com.pascalwelsch.compositeandroid.core.AbstractPlugin;
-import com.pascalwelsch.compositeandroid.core.CallFun0;
-import com.pascalwelsch.compositeandroid.core.CallFun1;
-import com.pascalwelsch.compositeandroid.core.CallFun2;
-import com.pascalwelsch.compositeandroid.core.CallFun3;
-import com.pascalwelsch.compositeandroid.core.CallFun4;
-import com.pascalwelsch.compositeandroid.core.CallFun6;
-import com.pascalwelsch.compositeandroid.core.CallVoid0;
-import com.pascalwelsch.compositeandroid.core.CallVoid1;
-import com.pascalwelsch.compositeandroid.core.CallVoid2;
-import com.pascalwelsch.compositeandroid.core.CallVoid3;
-import com.pascalwelsch.compositeandroid.core.CallVoid4;
-import com.pascalwelsch.compositeandroid.core.CallVoid5;
-import com.pascalwelsch.compositeandroid.core.CallVoid6;
-import com.pascalwelsch.compositeandroid.core.CallVoid7;
-import com.pascalwelsch.compositeandroid.core.CallVoid8;
-
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
@@ -84,8 +67,6 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.ContextMenu;
 import android.view.Display;
-import android.view.DragAndDropPermissions;
-import android.view.DragEvent;
 import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.KeyboardShortcutGroup;
@@ -101,6 +82,23 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toolbar;
+
+import com.pascalwelsch.compositeandroid.core.AbstractPlugin;
+import com.pascalwelsch.compositeandroid.core.CallFun0;
+import com.pascalwelsch.compositeandroid.core.CallFun1;
+import com.pascalwelsch.compositeandroid.core.CallFun2;
+import com.pascalwelsch.compositeandroid.core.CallFun3;
+import com.pascalwelsch.compositeandroid.core.CallFun4;
+import com.pascalwelsch.compositeandroid.core.CallFun6;
+import com.pascalwelsch.compositeandroid.core.CallVoid0;
+import com.pascalwelsch.compositeandroid.core.CallVoid1;
+import com.pascalwelsch.compositeandroid.core.CallVoid2;
+import com.pascalwelsch.compositeandroid.core.CallVoid3;
+import com.pascalwelsch.compositeandroid.core.CallVoid4;
+import com.pascalwelsch.compositeandroid.core.CallVoid5;
+import com.pascalwelsch.compositeandroid.core.CallVoid6;
+import com.pascalwelsch.compositeandroid.core.CallVoid7;
+import com.pascalwelsch.compositeandroid.core.CallVoid8;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -2875,20 +2873,6 @@ public class ActivityPlugin extends AbstractPlugin<CompositeActivity, ActivityDe
     public void reportFullyDrawn() {
         verifyMethodCalledFromDelegate("reportFullyDrawn()");
         ((CallVoid0) mSuperListeners.pop()).call();
-    }
-
-    /**
-     * Create {@link DragAndDropPermissions} object bound to this activity and controlling the
-     * access permissions for content URIs associated with the {@link DragEvent}.
-     *
-     * @param event Drag event
-     * @return The {@link DragAndDropPermissions} object used to control access to the content URIs.
-     * Null if no content URIs are associated with the event or if permissions could not be
-     * granted.
-     */
-    public DragAndDropPermissions requestDragAndDropPermissions(final DragEvent event) {
-        verifyMethodCalledFromDelegate("requestDragAndDropPermissions(DragEvent)");
-        return ((CallFun1<DragAndDropPermissions, DragEvent>) mSuperListeners.pop()).call(event);
     }
 
     /**
@@ -6057,13 +6041,6 @@ public class ActivityPlugin extends AbstractPlugin<CompositeActivity, ActivityDe
         }
     }
 
-    DragAndDropPermissions requestDragAndDropPermissions(
-            final CallFun1<DragAndDropPermissions, DragEvent> superCall, final DragEvent event) {
-        synchronized (mSuperListeners) {
-            mSuperListeners.push(superCall);
-            return requestDragAndDropPermissions(event);
-        }
-    }
 
     boolean requestVisibleBehind(final CallFun1<Boolean, Boolean> superCall,
             final boolean visible) {

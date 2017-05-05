@@ -71,7 +71,6 @@ import android.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.Display;
-import android.view.DragAndDropPermissions;
 import android.view.DragEvent;
 import android.view.KeyEvent;
 import android.view.KeyboardShortcutGroup;
@@ -5650,29 +5649,6 @@ public class ActivityDelegate extends AbstractDelegate<ICompositeActivity, Activ
             }
         };
         superCall.call();
-    }
-
-    public DragAndDropPermissions requestDragAndDropPermissions(final DragEvent event) {
-        if (mPlugins.isEmpty()) {
-            return getOriginal().super_requestDragAndDropPermissions(event);
-        }
-
-        final ListIterator<ActivityPlugin> iterator = mPlugins.listIterator(mPlugins.size());
-
-        final CallFun1<DragAndDropPermissions, DragEvent> superCall
-                = new CallFun1<DragAndDropPermissions, DragEvent>(
-                "requestDragAndDropPermissions(DragEvent)") {
-
-            @Override
-            public DragAndDropPermissions call(final DragEvent event) {
-                if (iterator.hasPrevious()) {
-                    return iterator.previous().requestDragAndDropPermissions(this, event);
-                } else {
-                    return getOriginal().super_requestDragAndDropPermissions(event);
-                }
-            }
-        };
-        return superCall.call(event);
     }
 
     public boolean requestVisibleBehind(final boolean visible) {
