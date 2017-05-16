@@ -66,7 +66,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
-import android.transition.Scene;
 import android.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
@@ -1522,27 +1521,6 @@ public class ActivityDelegate extends AbstractDelegate<ICompositeActivity, Activ
                     return iterator.previous().getContentResolver(this);
                 } else {
                     return getOriginal().super_getContentResolver();
-                }
-            }
-        };
-        return superCall.call();
-    }
-
-    public Scene getContentScene() {
-        if (mPlugins.isEmpty()) {
-            return getOriginal().super_getContentScene();
-        }
-
-        final ListIterator<ActivityPlugin> iterator = mPlugins.listIterator(mPlugins.size());
-
-        final CallFun0<Scene> superCall = new CallFun0<Scene>("getContentScene()") {
-
-            @Override
-            public Scene call() {
-                if (iterator.hasPrevious()) {
-                    return iterator.previous().getContentScene(this);
-                } else {
-                    return getOriginal().super_getContentScene();
                 }
             }
         };

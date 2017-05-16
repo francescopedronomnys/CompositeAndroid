@@ -61,7 +61,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
-import android.transition.Scene;
 import android.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.util.Pair;
@@ -664,18 +663,6 @@ public class ActivityPlugin extends AbstractPlugin<CompositeActivity, ActivityDe
         return ((CallFun0<ContentResolver>) mSuperListeners.pop()).call();
     }
 
-    /**
-     * Retrieve the {@link Scene} representing this window's current content.
-     * Requires {@link Window#FEATURE_CONTENT_TRANSITIONS}.
-     *
-     * <p>This method will return null if the current content is not represented by a Scene.</p>
-     *
-     * @return Current Scene being shown or null
-     */
-    public Scene getContentScene() {
-        verifyMethodCalledFromDelegate("getContentScene()");
-        return ((CallFun0<Scene>) mSuperListeners.pop()).call();
-    }
 
     /**
      * Retrieve the {@link TransitionManager} responsible for default transitions in this window.
@@ -4673,13 +4660,6 @@ public class ActivityPlugin extends AbstractPlugin<CompositeActivity, ActivityDe
         synchronized (mSuperListeners) {
             mSuperListeners.push(superCall);
             return getContentResolver();
-        }
-    }
-
-    Scene getContentScene(final CallFun0<Scene> superCall) {
-        synchronized (mSuperListeners) {
-            mSuperListeners.push(superCall);
-            return getContentScene();
         }
     }
 

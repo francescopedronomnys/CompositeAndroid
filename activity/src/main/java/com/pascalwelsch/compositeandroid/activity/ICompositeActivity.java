@@ -52,7 +52,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
-import android.transition.Scene;
 import android.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
@@ -225,8 +224,6 @@ public interface ICompositeActivity
     ComponentName getComponentName();
 
     ContentResolver getContentResolver();
-
-    Scene getContentScene();
 
     TransitionManager getContentTransitionManager();
 
@@ -950,8 +947,6 @@ public interface ICompositeActivity
     ComponentName super_getComponentName();
 
     ContentResolver super_getContentResolver();
-
-    Scene super_getContentScene();
 
     TransitionManager super_getContentTransitionManager();
 

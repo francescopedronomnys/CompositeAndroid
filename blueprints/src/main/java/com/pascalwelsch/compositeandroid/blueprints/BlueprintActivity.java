@@ -61,7 +61,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
-import android.transition.Scene;
 import android.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.util.Pair;
@@ -621,19 +620,6 @@ public class BlueprintActivity extends AppCompatActivity {
     @Override
     public ContentResolver getContentResolver() {
         return super.getContentResolver();
-    }
-
-    /**
-     * Retrieve the {@link Scene} representing this window's current content.
-     * Requires {@link Window#FEATURE_CONTENT_TRANSITIONS}.
-     *
-     * <p>This method will return null if the current content is not represented by a Scene.</p>
-     *
-     * @return Current Scene being shown or null
-     */
-    @Override
-    public Scene getContentScene() {
-        return super.getContentScene();
     }
 
     /**
