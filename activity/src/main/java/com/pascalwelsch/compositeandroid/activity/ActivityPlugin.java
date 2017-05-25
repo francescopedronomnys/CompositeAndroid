@@ -7,7 +7,6 @@ import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.app.TaskStackBuilder;
-import android.app.VoiceInteractor;
 import android.app.assist.AssistContent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -1001,15 +1000,6 @@ public class ActivityPlugin extends AbstractPlugin<CompositeActivity, ActivityDe
     public Resources.Theme getTheme() {
         verifyMethodCalledFromDelegate("getTheme()");
         return ((CallFun0<Resources.Theme>) mSuperListeners.pop()).call();
-    }
-
-    /**
-     * Retrieve the active {@link VoiceInteractor} that the user is going through to
-     * interact with this activity.
-     */
-    public VoiceInteractor getVoiceInteractor() {
-        verifyMethodCalledFromDelegate("getVoiceInteractor()");
-        return ((CallFun0<VoiceInteractor>) mSuperListeners.pop()).call();
     }
 
     public Drawable getWallpaper() {
@@ -4970,13 +4960,6 @@ public class ActivityPlugin extends AbstractPlugin<CompositeActivity, ActivityDe
         synchronized (mSuperListeners) {
             mSuperListeners.push(superCall);
             return getTheme();
-        }
-    }
-
-    VoiceInteractor getVoiceInteractor(final CallFun0<VoiceInteractor> superCall) {
-        synchronized (mSuperListeners) {
-            mSuperListeners.push(superCall);
-            return getVoiceInteractor();
         }
     }
 

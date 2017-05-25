@@ -5,7 +5,6 @@ import android.app.ActivityManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
-import android.app.VoiceInteractor;
 import android.app.assist.AssistContent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks;
@@ -316,8 +315,6 @@ public interface ICompositeActivity
     int getTaskId();
 
     Resources.Theme getTheme();
-
-    VoiceInteractor getVoiceInteractor();
 
     Drawable getWallpaper();
 
@@ -1033,8 +1030,6 @@ public interface ICompositeActivity
     int super_getTaskId();
 
     Resources.Theme super_getTheme();
-
-    VoiceInteractor super_getVoiceInteractor();
 
     Drawable super_getWallpaper();
 

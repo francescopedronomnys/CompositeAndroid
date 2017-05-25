@@ -7,7 +7,6 @@ import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.app.TaskStackBuilder;
-import android.app.VoiceInteractor;
 import android.app.assist.AssistContent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -998,15 +997,6 @@ public class BlueprintActivity extends AppCompatActivity {
     @Override
     public Resources.Theme getTheme() {
         return super.getTheme();
-    }
-
-    /**
-     * Retrieve the active {@link VoiceInteractor} that the user is going through to
-     * interact with this activity.
-     */
-    @Override
-    public VoiceInteractor getVoiceInteractor() {
-        return super.getVoiceInteractor();
     }
 
     @Override

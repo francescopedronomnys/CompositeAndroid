@@ -8,7 +8,6 @@ import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.app.TaskStackBuilder;
-import android.app.VoiceInteractor;
 import android.app.assist.AssistContent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -1022,15 +1021,6 @@ public class CompositeActivity extends AppCompatActivity implements ICompositeAc
     @Override
     public Resources.Theme getTheme() {
         return delegate.getTheme();
-    }
-
-    /**
-     * Retrieve the active {@link VoiceInteractor} that the user is going through to
-     * interact with this activity.
-     */
-    @Override
-    public VoiceInteractor getVoiceInteractor() {
-        return delegate.getVoiceInteractor();
     }
 
     @Override
@@ -4977,15 +4967,6 @@ public class CompositeActivity extends AppCompatActivity implements ICompositeAc
         return super.getTheme();
     }
 
-    /**
-     * Retrieve the active {@link VoiceInteractor} that the user is going through to
-     * interact with this activity.
-     */
-
-    @Override
-    public VoiceInteractor super_getVoiceInteractor() {
-        return super.getVoiceInteractor();
-    }
 
     @Override
     public Drawable super_getWallpaper() {

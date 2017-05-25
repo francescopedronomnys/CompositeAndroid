@@ -22,7 +22,6 @@ import android.app.ActivityManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
-import android.app.VoiceInteractor;
 import android.app.assist.AssistContent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks;
@@ -2469,27 +2468,6 @@ public class ActivityDelegate extends AbstractDelegate<ICompositeActivity, Activ
         return superCall.call();
     }
 
-    public VoiceInteractor getVoiceInteractor() {
-        if (mPlugins.isEmpty()) {
-            return getOriginal().super_getVoiceInteractor();
-        }
-
-        final ListIterator<ActivityPlugin> iterator = mPlugins.listIterator(mPlugins.size());
-
-        final CallFun0<VoiceInteractor> superCall = new CallFun0<VoiceInteractor>(
-                "getVoiceInteractor()") {
-
-            @Override
-            public VoiceInteractor call() {
-                if (iterator.hasPrevious()) {
-                    return iterator.previous().getVoiceInteractor(this);
-                } else {
-                    return getOriginal().super_getVoiceInteractor();
-                }
-            }
-        };
-        return superCall.call();
-    }
 
     public Drawable getWallpaper() {
         if (mPlugins.isEmpty()) {
